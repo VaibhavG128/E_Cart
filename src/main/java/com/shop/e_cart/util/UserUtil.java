@@ -4,8 +4,17 @@ public class UserUtil {
 	private int id;
 	private String name;
 	private String email;
+	private String userType; 
 
 	public UserUtil() {
+	}
+
+	public String getUserType() {
+		return userType;
+	}
+
+	public void setUserType(String userType) {
+		this.userType = userType;
 	}
 
 	public UserUtil(int id, String name, String email, String password) {
@@ -40,7 +49,8 @@ public class UserUtil {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + "]";
+		return "UserUtil [id=" + id + ", name=" + name + ", email=" + email + ", userType=" + userType + "]";
 	}
+
 
 }

@@ -12,11 +12,11 @@
 </head>
 <body>
 	<%@include file="./includes/navbar.jsp"%>
-
 	<div class="container">
 		<div class="card w-50 mx-auto my-5">
 			<div class="card-header text-center">User Login</div>
 			<div class="card-body">
+			<input type="hidden" id="userStatus" value="${newUser}">
 				<form action="validate" method="post">
 					<div class="form-group">
 						<label>Email address</label> <input type="email"
@@ -31,9 +31,22 @@
 					</div>
 				</form>
 			</div>
+			<a href="/registrationPage" class="text-center">Create Account</a>
 		</div>
 	</div>
 
 	<%@include file="./includes/footer.jsp"%>
+	<!-- <script type="text/javascript">
+	$( document ).ready(function() {
+	   var status = $('#userStatus').val();
+	   console.log(status);
+	   if(status!="" && status){
+	   	alert("You are successfully registered")
+	   }
+	   	else if (status!="" && status){
+	   	alert("You are Not Registered Try again!!")
+	   	}
+	});
+	</script> -->
 </body>
 </html>

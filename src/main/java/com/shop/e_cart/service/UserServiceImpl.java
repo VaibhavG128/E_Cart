@@ -32,10 +32,21 @@ public class UserServiceImpl implements UserService {
 			userUtil.setId(users.getId());
 			userUtil.setName(users.getName());
 			userUtil.setEmail(users.getEmail());
+			userUtil.setUserType(users.getUsertype());
 			request.getSession().setAttribute("auth", userUtil);
 			page = "index";
 		}
 		return page;
+	}
+
+	@Override
+	public Users addUser(HttpServletRequest request) {
+		Users user = new Users();
+		user.setName(request.getParameter("name"));
+		user.setEmail(request.getParameter("email"));
+		user.setPassword(request.getParameter("password"));
+		user.setUsertype(request.getParameter("userType"));
+		return userDao.saveAndFlush(user);
 	}
 
 }

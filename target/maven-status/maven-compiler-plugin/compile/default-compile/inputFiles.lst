@@ -2,8 +2,12 @@ C:\Users\VAIBHAV\Eclipse_workspace_2\e_cart\src\main\java\com\shop\e_cart\entity
 C:\Users\VAIBHAV\Eclipse_workspace_2\e_cart\src\main\java\com\shop\e_cart\service\UserServiceImpl.java
 C:\Users\VAIBHAV\Eclipse_workspace_2\e_cart\src\main\java\com\shop\e_cart\entity\Products.java
 C:\Users\VAIBHAV\Eclipse_workspace_2\e_cart\src\main\java\com\shop\e_cart\controller\ECartController.java
+C:\Users\VAIBHAV\Eclipse_workspace_2\e_cart\src\main\java\com\shop\e_cart\service\OrderServiceImpl.java
+C:\Users\VAIBHAV\Eclipse_workspace_2\e_cart\src\main\java\com\shop\e_cart\entity\Orders.java
 C:\Users\VAIBHAV\Eclipse_workspace_2\e_cart\src\main\java\com\shop\e_cart\util\UserUtil.java
 C:\Users\VAIBHAV\Eclipse_workspace_2\e_cart\src\main\java\com\shop\e_cart\configuration\ECartConfig.java
+C:\Users\VAIBHAV\Eclipse_workspace_2\e_cart\src\main\java\com\shop\e_cart\service\OrderService.java
+C:\Users\VAIBHAV\Eclipse_workspace_2\e_cart\src\main\java\com\shop\e_cart\dao\OrderDao.java
 C:\Users\VAIBHAV\Eclipse_workspace_2\e_cart\src\main\java\com\shop\e_cart\entity\Users.java
 C:\Users\VAIBHAV\Eclipse_workspace_2\e_cart\src\main\java\com\shop\e_cart\dao\ProductDao.java
 C:\Users\VAIBHAV\Eclipse_workspace_2\e_cart\src\main\java\com\shop\e_cart\entity\Order.java

@@ -1,6 +1,6 @@
 package com.shop.e_cart.entity;
 
-public class Cart {
+public class Cart extends Products {
 
 	private int quantity;
 

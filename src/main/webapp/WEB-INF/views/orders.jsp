@@ -1,36 +1,16 @@
-<%@page import="java.text.DecimalFormat"%>
-<%@page import="cn.techtutorial.dao.OrderDao"%>
-<%@page import="cn.techtutorial.connection.DbCon"%>
-<%@page import="cn.techtutorial.dao.ProductDao"%>
-<%@page import="cn.techtutorial.model.*"%>
-<%@page import="java.util.*"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
-	<%
-	DecimalFormat dcf = new DecimalFormat("#.##");
-		request.setAttribute("dcf", dcf);
-		UserUtil auth = (UserUtil) request.getSession().getAttribute("auth");
-		List<Order> orders = null;
-		if (auth != null) {
-		    request.setAttribute("person", auth);
-		    OrderDao orderDao  = new OrderDao(DbCon.getConnection());
-			orders = orderDao.userOrders(auth.getId());
-		}else{
-			response.sendRedirect("login.jsp");
-		}
-		ArrayList<Cart> cart_list = (ArrayList<Cart>) session.getAttribute("cart-list");
-		if (cart_list != null) {
-			request.setAttribute("cart_list", cart_list);
-		}
-	%>
+<%@taglib prefix="d" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn"%>
+	
 <!DOCTYPE html>
 <html>
 <head>
-<%@include file="/includes/head.jsp"%>
+<%@include file="./includes/head.jsp"%>
 <title>E-Commerce Cart</title>
 </head>
 <body>
-	<%@include file="/includes/navbar.jsp"%>
+	<%@include file="./includes/navbar.jsp"%>
 	<div class="container">
 		<div class="card-header my-3">All Orders</div>
 		<table class="table table-light">
@@ -45,25 +25,20 @@
 				</tr>
 			</thead>
 			<tbody>
-			
-			<%
-			if(orders != null){
-				for(Order o:orders){%>
+			<d:forEach items="${ordersList}" var="o">			
 					<tr>
-						<td><%=o.getDate() %></td>
-						<td><%=o.getName() %></td>
-						<td><%=o.getCategory() %></td>
-						<td><%=o.getQunatity() %></td>
-						<td><%=dcf.format(o.getPrice()) %></td>
-						<td><a class="btn btn-sm btn-danger" href="cancel-order?id=<%=o.getOrderId()%>">Cancel Order</a></td>
+						<td>${o.getDate()}</td>
+						<td>${o.getName()}</td>
+						<td>${o.getCategory()}</td>
+						<td>${o.getQunatity()}</td>
+						<td>${o.getPrice()*o.getQunatity()}</td>
+						<td><a class="btn btn-sm btn-danger" href="cancelOrder?id=${o.getOrderId()}">Cancel Order</a></td>
 					</tr>
-				<%}
-			}
-			%>
+			</d:forEach>
 			
 			</tbody>
 		</table>
 	</div>
-	<%@include file="/includes/footer.jsp"%>
+	<%@include file="./includes/footer.jsp"%>
 </body>
 </html>

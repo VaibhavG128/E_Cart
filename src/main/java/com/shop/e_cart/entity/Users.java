@@ -20,6 +20,15 @@ public class Users {
 	private String email;
 	@Column(name = "password")
 	private String password;
+	@Column(name = "usertype")
+	private String usertype;
+	public String getUsertype() {
+		return usertype;
+	}
+
+	public void setUsertype(String usertype) {
+		this.usertype = usertype;
+	}
 
 	public Users() {
 	}
@@ -65,7 +74,9 @@ public class Users {
 
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + "]";
+		return "Users [id=" + id + ", name=" + name + ", email=" + email + ", password=" + password + ", usertype="
+				+ usertype + "]";
 	}
+
 	
 }

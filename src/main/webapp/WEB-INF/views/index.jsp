@@ -15,6 +15,9 @@
 		<div class="card-header my-3">All Products</div>
 		<div class="row">
 		<input type="hidden" id = 'clist' value='${cartList}'>
+		<input type="hidden" id = 'clist1' value='${cart_list.size()}'>
+		<input type="hidden" id = 'clist2' value='${cart_list}'>
+		
 			<d:forEach items="${productList}" var="v">
 				<div class="col-md-3 my-3">
 					<div class="card w-100">
@@ -28,7 +31,7 @@
 								 <a class="btn btn-dark"  onclick="return checkCart(${v.getId()});" href="addToCart?id=${v.getId()}"  >Add
 									to Cart</a>
 									 <a class="btn btn-primary"
-									href="order-now?quantity=1&id=${v.getId()}">Buy Now</a>
+									href="orderNow?quantity=1&id=${v.getId()}">Buy Now</a>
 							 </div>
 						</div>
 					</div>
@@ -42,14 +45,16 @@
 <script type="text/javascript">
 function checkCart(id)
 {
-	
+	try{
+	console.log('==>',$('#clist').val(),$('#clist1').val(),$('#clist2').val())	
 	var cardList1 = $('#clist').val();
-	var cardList = JSON.parse(cardList1)
+	var cardList;
+	if(cardList1!=undefined && cardList1.length>0){
+	cardList = JSON.parse(cardList1)
+	}
 	console.log('==>',cardList,'<==',id);
 	console.log(cardList, typeof cardList)
 	console.log(cardList)
-		 console.log( Object.keys(cardList) )
-		 console.log( cardList[id])
 	 if(cardList != undefined && Object.keys(cardList) && cardList[id]!==undefined)
 		{
 		 console.log(cardList)
@@ -63,6 +68,12 @@ function checkCart(id)
 		alert('Item Already in Cart Not.');
 		return true;
 		} 
+	}
+	catch(err)
+	{
+		console.log(err)
+		return false;
+	}
 
 } 
 
